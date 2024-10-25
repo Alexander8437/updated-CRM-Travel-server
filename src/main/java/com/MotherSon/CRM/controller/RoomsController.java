@@ -14,22 +14,20 @@ import com.MotherSon.CRM.models.Rooms;
 import com.MotherSon.CRM.security.services.RoomsService;
 
 @RestController
-	@RequestMapping("Motherson/crm/v1/rooms")
-	public class RoomsController {
-		
-		@Autowired
-		private RoomsService roomsService;
-		
-		
-		
-		
-	    @PostMapping("/create")
-	      public Rooms addRooms(@RequestBody Rooms rooms) {
-	    	return this.roomsService.addRooms(rooms);
-	    }
-	    @GetMapping("/getAll")
-		public List<Rooms> getAllRoom(){
-			return roomsService.getAllRoom();
-		}
-	 }
+@CrossOrigin(origins = "*", maxAge = 3600)
+@RequestMapping("Motherson/crm/v1/rooms")
+public class RoomsController {
 
+	@Autowired
+	private RoomsService roomsService;
+
+	@PostMapping("/create")
+	public Rooms addRooms(@RequestBody Rooms rooms) {
+		return this.roomsService.addRooms(rooms);
+	}
+
+	@GetMapping("/getAll")
+	public List<Rooms> getAllRoom() {
+		return roomsService.getAllRoom();
+	}
+}
