@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -59,7 +60,7 @@ import jakarta.validation.constraints.Size;
 @Table(name = "country_master")
 //@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 // @JsonIgnoreProperties({"states", "destinations"})
-@JsonIgnoreProperties(value = { "states", "destinations" })
+@JsonIgnoreProperties(value = { "destinations" })
 public class Country {
 
 	@Id
@@ -96,7 +97,8 @@ public class Country {
 	
 	@OneToMany(mappedBy = "country", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	// @JsonIgnore
-	@JsonManagedReference
+//	@JsonManagedReference
+	@JsonBackReference
 	private Set<State> states;
 
 	public String getpCode() {

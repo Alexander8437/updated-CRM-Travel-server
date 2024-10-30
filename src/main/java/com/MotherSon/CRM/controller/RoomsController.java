@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.MotherSon.CRM.models.RoomTypes;
 import com.MotherSon.CRM.models.Rooms;
 import com.MotherSon.CRM.security.services.RoomsService;
 
